@@ -12,6 +12,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -34,6 +36,7 @@ import javax.persistence.TemporalType;
 public class Event implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Basic(optional = false)
     @Column(name = "EvtID")
     private Integer evtID;
@@ -76,6 +79,15 @@ public class Event implements Serializable {
 
     public Event(Integer evtID) {
         this.evtID = evtID;
+    }
+
+    public Event(String evtTitle, int evtFee, String evtCriteria, String evtProcedures, Date dateStart, Date dateEnd) {
+        this.evtTitle = evtTitle;
+        this.evtFee = evtFee;
+        this.evtCriteria = evtCriteria;
+        this.evtProcedures = evtProcedures;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
     }
 
     public Event(Integer evtID, String evtTitle, int evtFee, String evtCriteria, String evtProcedures, Date dateStart, Date dateEnd) {
