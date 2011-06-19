@@ -3,5 +3,7 @@
   <persistence-unit name="Eproject_EJBPU" transaction-type="JTA">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <jta-data-source>java:/jndiNLPP_Eproject</jta-data-source>
+    <properties>
+    </properties>
   </persistence-unit>
 </persistence>
